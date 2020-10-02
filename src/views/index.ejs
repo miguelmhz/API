@@ -1,0 +1,16 @@
+<%- include("template/cabecera", {tituloWeb: "INDEX"}) %>
+
+
+    <h1>Rutas</h1>
+    <h2><%= titulo %></h2>
+    <ul>
+        <li> <span style="font-weight: bold;">Obtener los registros en formato JSON</span> /api/json </li>
+        <li> <span style="font-weight: bold;">Obtener los registros en formato CSV</span> /api/csv </li>
+        <li> <span style="font-weight: bold;">Obtener un solo registro por id </span> /api/csv/<:id> o /api/csv/<:id> </li>
+        <li> <span style="font-weight: bold;">Realizar un POST </span> /api/post/  </li>
+        <li> <span style="font-weight: bold;">Eliminar registros </span> /api/delete/<:id>  </li>
+        <li> <span style="font-weight: bold;">Buscar por coincidencia en el nombre </span> api/json/regex/<:word>  </li>
+        <li> <span style="font-weight: bold;">Actualizar todos los campos </span> api/put/<:id>  </li>
+    </ul>
+
+<%- include("template/footer") %>

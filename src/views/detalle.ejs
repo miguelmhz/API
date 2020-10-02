@@ -1,0 +1,60 @@
+<%- include("template/cabecera", {tituloWeb: "Detalle"}) %>
+
+   <div class="container">
+       <h1>Detalle del sensor</h1>
+        <% if (error) { %>
+            <p><%= mensaje %> </p>
+        <% } %>
+       <% if (!error) { %>
+       
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">name</th>
+                <th scope="col">latitud</th>
+                <th scope="col">longitud</th>
+                <th scope="col">accion</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row"><%= sensor.id %> </th>
+                    <td><%= sensor.name %></td>
+                    <td><%= sensor.lat %></td>
+                    <td><%= sensor.lon %></td>
+                  <td><button class="btn btn-danger btn-sm" 
+                    id="btnEliminar"
+                    data-id=<%= sensor.id %>>
+                    Eliminar</button></td>
+                </tr> 
+            </tbody>   
+        </table>
+        
+       <% } %>
+     
+         
+        <a href="/sensores">Volver </a>
+   </div>
+<%- include("template/footer") %>
+<script>
+    const btnEliminar = document.querySelector('#btnEliminar')
+    btnEliminar.addEventListener('click', async ()=>{
+        const id = btnEliminar.dataset.id;
+        try {
+            const data = await fetch(`/sensores/${id}`,{
+                method : 'delete'
+            })
+            const res = await data.json()
+            if (res.estado) {
+                window.location.href='/sensores'
+            } else {
+                console.log(error);
+            }
+        } catch (error) {
+            console.log(error);
+            
+        }
+    })
+</script>

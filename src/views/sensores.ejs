@@ -1,0 +1,35 @@
+<%- include("template/cabecera", {tituloWeb: "INDEX"}) %>
+
+
+    <div class="container">
+      <a href="/sensores/agregar" class="btn btn-block btn-success">
+        Insertar
+      </a>
+
+        <table class="table">
+            <thead>
+              <tr>
+               
+                <th scope="col">name</th>
+                <th scope="col">latitud</th>
+                <th scope="col">longitud</th>
+                <th scope="col">accion</th>
+              </tr>
+            </thead>
+            <tbody>
+                    <% sensorArray.forEach(sensor => { %>
+                            <tr>
+                             
+                              <td><%= sensor.name %></td>
+                              <td><%= sensor.lat %></td>
+                              <td><%= sensor.lon %></td>
+                              <td><a href="./sensores/<%= sensor.id %>">Detalles</a></td>
+                            </tr>
+                            <tr>    
+                    <% }) %>
+         </tbody>   
+        </table>
+        
+    </div>
+
+<%- include("template/footer") %>

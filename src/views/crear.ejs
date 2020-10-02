@@ -1,0 +1,17 @@
+<%- include("template/cabecera", {tituloWeb: "404"}) %>
+
+   <div class="container">
+       <h1>Crear</h1>
+       <form action="/sensores" method="POST">
+           <input type="text" placeholder="Sensor" class="form-control my-2" name="name">
+            
+           <input type="number" placeholder="latitud" class="form-control my-2" name="lat">
+           
+           <input type="number" placeholder="longitud" class="form-control my-2" name="lon">
+
+           <button type="submit" class="btn btn-success btn-block">
+               Agregar
+           </button>
+        </form>
+   </div>
+<%- include("template/footer") %>
